@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./login.css"
 
 function Login() {
@@ -11,9 +12,12 @@ function Login() {
                 <input type="password" className="loginInput" placeholder="Enter your password" />
                 <div className="buttons">
                     <button className="loginButton">Login</button>
-                    <button className="registerButton">Register</button>
+                    <button className="registerButton">
+                        <Link to="/register" className="link">Register</Link>
+                    </button>
                 </div>
             </form>
+            
         </div>
     )
 }
