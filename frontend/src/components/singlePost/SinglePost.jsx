@@ -1,15 +1,30 @@
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router"
 import "./singlePost.css"
+import axios from 'axios'
 
-function singlePost() {
+function SinglePost() {
+    const location = useLocation()
+    const path = (location.pathname.split("/")[2])
+    const [post, setPost] = useState({});
+    useEffect(()=> {
+        const getPost = async ()=> {
+            const res = await axios.get("/posts/" + path)
+            setPost(res.data)
+        }
+        getPost()
+    },[path])
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
+                {post.photo && (
                 <img 
-                   src={require("../../img/pexels-photo-1066176.jpeg")}
+                   src={post.photo}
                    alt=""
                    className="singlePostImage" />
+                )}
                 <h1 className="singlePostTitle">
-                    Lorem ipsum dolor sit amet
+                    {post.title}
                     <div className="edit">
                         <i className="singlePostIcon far fa-edit"></i>
                         <i className="singlePostIcon far fa-trash-alt"></i>
@@ -17,14 +32,16 @@ function singlePost() {
                     
                 </h1>
                 <div className="info">
-                    <span className="author"><b>İsmail Onur Aygan</b></span>
-                    <span className="date">2 hour ago</span>
+                    <span className="author"><b>{post.username}</b></span>
+                    <span className="date">{new Date(post.createdAt).toDateString()}</span>
                 </div>   
-                <p className="singlePostDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni placeat magnam nam ab rerum error itaque quos! Fugit id illum ullam! Quidem autem saepe repudiandae quibusdam id non delectus animi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ab ducimus provident dolorum quis aut omnis officia maxime, fugit culpa deserunt corporis vero excepturi atque fuga itaque ut? Beatae, ea. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, pariatur. Eligendi vel ipsa sunt possimus laudantium? Soluta cumque reprehenderit repellendus necessitatibus ducimus mollitia aspernatur assumenda ad temporibus? Harum, vero explicabo? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus enim, impedit odit quibusdam sed deserunt non rem quae veritatis architecto optio nobis aliquam consectetur, explicabo dolores eligendi id pariatur? Nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam fuga veniam fugiat amet ab eius voluptates sit et cum pariatur nesciunt mollitia perspiciatis cupiditate id repellendus, recusandae doloribus illum saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eum, et quia pariatur unde deserunt, odio excepturi iure, illo possimus beatae similique corporis? Maiores, cumque! Quisquam delectus aperiam eius fuga.</p>
+                <p className="singlePostDescription">
+                    {post.desc}
+                </p>
 
             </div>
         </div>
     )
 }
 
-export default singlePost
+export default SinglePost
