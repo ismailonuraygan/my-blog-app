@@ -33,7 +33,7 @@ function Register() {
                 <label className="password" >Password</label>
                 <input type="password" onChange={(e)=> {setPassword(e.target.value)}} className="registerInput" placeholder="Enter your password" />
                 <div className="buttons">
-                    <button className="registerButton" type="submit">Register</button>
+                    <button className="registerButton" type="submit">Sign up</button>
                     <button className="loginButton">
                     <Link to="/login" className="link">Login</Link>
                     </button>
