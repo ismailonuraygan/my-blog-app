@@ -9,11 +9,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import { Context } from "./context/Context";
+import {useContext} from 'react';
 
 function App() {
-  const user = false;
+  const {user} = useContext(Context);
   return (
     <Router>
       <Navbar />
