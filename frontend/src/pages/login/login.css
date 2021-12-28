@@ -51,6 +51,10 @@
   text-align: center;
   margin-right: 10px;
 }
+.loginButton:disabled{
+    cursor: not-allowed;
+    background-color: gray;
+}
 
 .registerButton{
   background-color: teal;

@@ -18,11 +18,9 @@ function Login() {
                 password: passwordRef.current.value,
             })
             dispatch({type : "login_success", payload: res.data});
-        }catch(err) {
-            dispatch({type : "login_failure"});
-        }
+        }catch(err) {}
     };
-console.log(user)
+    console.log(user)
 
     return (
         <div className="login">
@@ -35,7 +33,7 @@ console.log(user)
                 <div className="buttons">
                     <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
                     <button className="registerButton">
-                        <Link to="/register" className="link">Register</Link>
+                        <Link to="/register" className="link">Sign up</Link>
                     </button>
                 </div>
             </form>
