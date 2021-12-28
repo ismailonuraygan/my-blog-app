@@ -14,3 +14,16 @@ export const LoginFailure = ()=>({
 export const Logout = () => ({
     type: "logout",
 })
+
+export const UpdateStart = (userCredentials) => ({
+    type: "update_start",
+})
+
+export const UpdateSuccess = (user) => ({
+    type :"update_success",
+    payload: user,
+});
+
+export const UpdateFailure = ()=>({
+    type: "update_failure"
+});
