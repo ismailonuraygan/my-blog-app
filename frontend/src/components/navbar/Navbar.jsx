@@ -5,6 +5,8 @@ import {Context} from '../../context/Context'
 
 function Navbar() {
   const {user, dispatch} = useContext(Context);
+  //const PF = "http://localhost:5000/";
+
   const handleLogout = () => {
     dispatch({type: "logout"})
   }
@@ -14,7 +16,6 @@ function Navbar() {
       <div className="navLeft">
         <i className="navIcon fab fa-facebook-square"></i>
         <i className="navIcon fab fa-twitter-square"></i>
-        <i className="navIcon fab fa-pinterest-square"></i>
         <i className="navIcon fab fa-instagram-square"></i>
       </div>
       <div className="navCenter">
@@ -25,14 +26,11 @@ function Navbar() {
             </Link>
           </li>
           <li className="navListItem">
-            <Link to="/about" className="link">
-              ABOUT
+            <Link to="/profile" className="link">
+              PROFILE
             </Link>
           </li>
           <li className="navListItem">
-            <Link to="/contact" className="link">
-              CONTACT
-            </Link>
           </li>
           <li className="navListItem">
             <Link to="/write" className="link">
@@ -44,11 +42,13 @@ function Navbar() {
       </div>
       <div className="navRight">
         {user ? (
+        <Link to={"/profile"}>
           <img
             className="navImg"
-            src={user.profilePicture}
+            src={require("../../img/user_icon.jpg") }
             alt=""
           />
+          </Link>
         ) : (
           <ul className="navList">
             <li className="navListItem">
