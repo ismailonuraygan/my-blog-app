@@ -2,16 +2,20 @@ const router = require("express").Router();
 const User = require("../models/User");
 const mongoose = require("mongoose");
 const Post = require("../models/Post")
+const upload = require("../multer");
+
 
 
 // create new post
-router.post("/", async (req, res) => {
+router.post("/",upload.single("photo"), async (req, res) => {
     const newPost = new Post({
         title: req.body.title,
         desc: req.body.desc,
         username: req.body.username,
+        photo: req.file?.path, 
         categories: req.body.categories
     });
+    console.log(newPost)
     try {
         const savedPost = await newPost.save()
         res.status(200).json(savedPost)
@@ -46,7 +50,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     const post = await Post.findById(req.params.id)
-    if(req.params.id === req.body.postID || req.body.username === post.username){
+    if(req.body.username === post.username){
         try{
             const deletedPost = await Post.findByIdAndDelete(req.params.id)
             res.status(200).json("Post has been deleted!")
