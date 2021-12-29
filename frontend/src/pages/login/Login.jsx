@@ -33,7 +33,7 @@ function Login() {
                 <div className="buttons">
                     <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
                     <button className="registerButton">
-                        <Link to="/register" className="link">Sign up</Link>
+                        <Link to="/register" className="link">Go to Sign up</Link>
                     </button>
                 </div>
             </form>

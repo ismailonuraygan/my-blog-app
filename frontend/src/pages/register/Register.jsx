@@ -35,7 +35,7 @@ function Register() {
                 <div className="buttons">
                     <button className="registerButton" type="submit">Sign up</button>
                     <button className="loginButton">
-                    <Link to="/login" className="link">Login</Link>
+                    <Link to="/login" className="link">Go to Login</Link>
                     </button>
                 </div>
                 {error && <span>You already singed-up!</span>}
