@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
-const categoryRoute = require("./routes/categories");
+
 const path = require("path")
 
 
@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGO_URL ,{
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
-app.use("/api/categories", categoryRoute);
+
 
 
 
