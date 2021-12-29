@@ -2,12 +2,12 @@
 ReactJS, NodeJS, Express.js , MongoDB
 
 to run backend
-cd api
-npm install
-npm start
+cd api,<br>
+npm install,  
+npm start  
 
 
 to run frontend
-cd frontend
+cd frontend,
 npm install
 npm start
