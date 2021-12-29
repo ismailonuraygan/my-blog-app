@@ -1,13 +1,13 @@
 # my-blog-app
 ReactJS, NodeJS, Express.js , MongoDB
 
-to run backend
-cd api,<br>
-npm install,  
-npm start  
+to run backend<br>
+cd api<br>
+npm install<br> 
+npm start<br>  
 
 
-to run frontend
-cd frontend,
-npm install
-npm start
+to run frontend<br>
+cd frontend<br>
+npm install<br>
+npm start<br>
